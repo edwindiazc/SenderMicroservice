@@ -9,10 +9,7 @@ export class EmailDto {
     @IsString({ message: 'You must to provide a string' })
     @IsNotEmpty({ message: 'The field "subject" is required' })
     subject: string;
-
-    @IsString({ message: 'You must to provide a string' })
-    @IsNotEmpty({ message: 'The field "from" is required' })
-    @IsEmail()
+    
     from: string;
 
     @IsString({ message: 'You must to provide a string' })
