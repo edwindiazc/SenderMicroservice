@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsEmail } from "class-validator";
+import { IsString, IsNotEmpty, IsEmail,IsOptional } from "class-validator";
 
 export class EmailDto {
     @IsString({ message: 'You must to provide a string' })
@@ -10,6 +10,9 @@ export class EmailDto {
     @IsNotEmpty({ message: 'The field "subject" is required' })
     subject: string;
     
+    @IsEmail()
+    @IsNotEmpty({ message: 'The field "to" is required' })
+    @IsOptional()
     from: string;
 
     @IsString({ message: 'You must to provide a string' })
