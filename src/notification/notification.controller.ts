@@ -7,8 +7,8 @@ import { NotificationDto } from './dto/notification.dto';
 export class NotificationController {
   constructor(private readonly notificationService: NotificationService) {}
 
-  @MessagePattern('notify')
+  @MessagePattern({cmd:'push-notification'})
   create(@Payload() notificationDto: NotificationDto) {
-    return this.notificationService.notify(notificationDto);
+    return this.notificationService.pushNotification(notificationDto);
   }
 }
