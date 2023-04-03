@@ -7,7 +7,7 @@ import { CallDto } from './dto/call.dto';
 export class CallsController {
   constructor(private readonly callsService: CallsService) {}
 
-  @MessagePattern('call')
+  @MessagePattern({cmd:'send-sms'})
   call(@Payload() callDto: CallDto) {
     return this.callsService.call(callDto);
   }
